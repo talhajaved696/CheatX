@@ -1,0 +1,50 @@
+<h5>Dashboard</h5>
+<a href="/course/{{course._id}}/stories" class="btn">All Stories</a>
+<h3>Welcome {{name}}</h3>
+<h5>{{course.title}}</h5>
+<p>Your Stories</p>
+{{#if stories}}
+<table class="striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each stories}}
+        <tr>
+            <td><a href="/course/stories/{{_id}}">{{title}}</a></td>
+            <td>{{formDate createdAt 'MMMM Do YYYY, h:mm:ss a'}}</td>
+            <td><span class="dash-status">{{status}}</span></td>
+            <td>
+                <a href="/course/stories/edit/{{_id}}" class="btn btn-float">
+                    <i class="fas fa-edit"></i>
+                </a>
+                <a href="/course/stories/files/{{_id}}" class="btn btn-float">
+                    <i class="fa fa-upload"></i>
+                </a>
+
+                <form action="/course/stories/{{_id}}" method="POST" id="delete-form">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button type="submit" class="btn red">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </form>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+
+{{else}}
+<p>You have no stories to show.</p>
+{{/if}}
+
+<div class="fixed-action-btn">
+    <a href="/course/{{course._id}}/add" class="btn-floating btn-large waves-effect waves-light red"><i
+            class="fas fa-plus"></i></a>
+</div>

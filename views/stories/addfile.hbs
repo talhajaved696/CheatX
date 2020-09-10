@@ -1,0 +1,20 @@
+<h4>Attach Document to your Story:</h4>
+<div class="row">
+    <form action="/course/stories/files/{{story._id}}" method="POST" enctype="multipart/form-data" class="col s12">
+
+        <div class="row file-field input-field">
+            <div class="btn waves-effect waves-light">
+                <span>File</span>
+                <input type="file" name="myfile">
+            </div>
+            <div class="file-path-wrapper">
+                <input class="file-path validate" type="text">
+            </div>
+        </div>
+
+        <div class="row">
+            <input type="submit" value="Save" class="btn">
+            <a href="/course/{{story.course}}/dashboard" class="btn orange">Cancel</a>
+        </div>
+    </form>
+</div>

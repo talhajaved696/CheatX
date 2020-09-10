@@ -1,0 +1,19 @@
+<h3>Welcome {{name}}</h3>
+<p>Your Courses</p>
+
+<table class="striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each course}}
+        <tr>
+            <td><a href="/course/{{_id}}/dashboard">{{title}}</a></td>
+            <td>{{formDate createdAt 'MMMM Do YYYY, h:mm:ss a'}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
